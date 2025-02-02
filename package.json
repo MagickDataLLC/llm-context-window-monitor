@@ -1,0 +1,59 @@
+{
+    "name": "llm-context-window-monitor",
+    "displayName": "LLM Context Window Monitor",
+    "description": "Shows context window usage in Cursor",
+    "version": "0.0.1",
+    "publisher": "MagickData",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MagickDataLLC/llm-context-window-monitor.git"
+    },
+    "bugs": {
+        "url": "https://github.com/MagickDataLLC/llm-context-window-monitor/issues"
+    },
+    "homepage": "https://github.com/MagickDataLLC/llm-context-window-monitor#readme",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile",
+        "lint": "eslint src --ext ts",
+        "build": "bash scripts/build.sh"
+    },
+    "devDependencies": {
+        "@types/node": "^16.x",
+        "@types/vscode": "^1.85.0",
+        "@typescript-eslint/eslint-plugin": "^6.13.1",
+        "@typescript-eslint/parser": "^6.13.1",
+        "typescript": "^5.3.2"
+    },
+    "contributes": {
+        "commands": [
+            {
+                "command": "cursor-context-window.show",
+                "title": "Show Cursor Context Window"
+            }
+        ],
+        "configuration": {
+            "title": "Cursor Context Monitor",
+            "properties": {
+                "cursor.chat.showContextWindow": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show context window usage after each chat response"
+                }
+            }
+        }
+    },
+    "license": "MIT"
+}
